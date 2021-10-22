@@ -7,9 +7,6 @@
                 "accountKey": "STORAGEACCOUNTKEY"
             }
         ],
-        "container": "data",
-        "pathPattern": "{date}/{time}",
-        "dateFormat": "yyyy/MM/dd",
-        "timeFormat": "HH"
+        "container": "data"
     }
 }
