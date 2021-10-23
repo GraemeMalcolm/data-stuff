@@ -3,7 +3,7 @@ There are two general ways to process data:
 - *Batch* data processing, in which multiple data records are collected and stored before being processed together in a single operation.
 - *Stream* processing, in which a source of data is constantly monitored and processed in realtime as new data events occur.
 
-For example, suppose you want to analyze road traffic by counting the number of cars on the road. A batch processing approach to this would require that you collect the cars in a parking lot, and then count them while in a single operation they're at rest.
+For example, suppose you want to analyze road traffic by counting the number of cars on a stretch of road. A batch processing approach to this would require that you collect the cars in a parking lot, and then count them while in a single operation they're at rest.
 
 ![Cars being counted in a parking lot](media/batch.png)
 
