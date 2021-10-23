@@ -1,13 +1,13 @@
-echo Installing required packages...
+echo Installing required Azure CLI extensions...
 az extension add --name azure-iot
 az extension add --name stream-analytics
 
 rg=$(az group list --query "[].name" -o tsv)
-echo "Creating resources in $rg resource group..."
+echo "Using the $rg resource group..."
 guid=${rg//[learn]/}
 suffix=${guid//[-]/}
 
-echo Creating IoT hub and device...
+echo Creating IoT hub...
 iothubname=iothub${suffix}
 iotdevicename=iotdevice
 az iot hub create --name $iothubname --resource-group $rg --sku F1 --partition-count 2 --output none
@@ -42,5 +42,5 @@ outputname=bloboutput
 az stream-analytics output create --resource-group $rg --job-name $streamanalyticsname --name $outputname --datasource output.json --serialization serialization.json --output none
 queryname=streamquery
 query=`cat query.txt`
-az stream-analytics transformation create --resource-group $rg --job-name $streamanalyticsname --name $queryname --transformation-query $query --output none
+az stream-analytics transformation create --resource-group $rg --job-name $streamanalyticsname --name $queryname --transformation-query "$query" --output none
 
