@@ -7,7 +7,7 @@ For example, suppose you want to analyze road traffic by counting the number of 
 
 ![Cars being counted in a parking lot](media/batch.png)
 
-If the road is buy, with a large number of cars driving along at frequent intervals, this approach may be impractical; and note that you don't get any results until you have collected all of the cars and counted them.
+If the road is busy, with a large number of cars driving along at frequent intervals, this approach may be impractical; and note that you don't get any results until you have collected all of the cars and counted them.
 
 A better approach might be to apply a *stream* processing approach, by counting the cars in realtime as they pass:
 
