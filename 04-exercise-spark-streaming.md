@@ -34,7 +34,7 @@ To use Spark to process streaming data, you need to add a Spark pool to your Azu
 
 1. In Synapse Studio, select the **Manage** page.
 2. Select the **Apache Spark pools** tab, and then use the **&#65291; New** icon to create a new Spark pool with the following settings:
-    - **Apache Spark pool name**: spark
+    - **Apache Spark pool name**: sparkpool
     - **Node size family**: Memory Optimized
     - **Node size**: Small (4 vCores / 32 GB)
     - **Autoscale**: Enabled
@@ -45,4 +45,19 @@ To use Spark to process streaming data, you need to add a Spark pool to your Azu
 
 To explore stream processing with Spark, you'll use a notebook that contains Python code and notes to help you perform some basic stream processing with Spark Structured Streaming and delta tables.
 
-1. 
+1. Download the [Structured Streaming and Delta Tables.ipynb](https://github.com/GraemeMalcolm/data-stuff/raw/main/streaming/Spark%20Structured%20Streaming%20and%20Delta%20Tables.ipynb) notebook to your local computer (if the notebook is opened as a text file in your browser, save it to a local folder; being careful to save it as **Structured Streaming and Delta Tables.ipynb**, not as a .txt file)
+2. In Synapse Studio, select the **Develop** page.
+3. On the **&#65291;** menu, select **&#8612; Import**, and select the **Structured Streaming and Delta Tables.ipynb** file on your local computer.
+4. Follow the instructions in the notebook to attach it to your Spark pool and run the code cells it contains to explore various ways to use Spark for stream processing.
+
+## Delete Azure resources
+
+Now that you've finished exploring Azure Synapse Analytics, you should delete the resources you've created to avoid unnecessary Azure costs.
+
+1. Close the Synapse Studio browser tab, without saving any changes, and return to the Azure portal.
+2. On the Azure portal, on the **Home** page, select **Resource groups**.
+3. Select the resource group for your Synapse Analytics workspace (not the managed resource group), and verify that it contains the Synapse workspace, storage account, and Spark pool for your workspace.
+4. At the top of the **Overview** page for your resource group, select **Delete resource group**.
+5. Enter the resource group name to confirm you want to delete it, and select **Delete**.
+
+    After a few minutes, your Azure Synapse workspace and the managed workspace associated with it will be deleted.
