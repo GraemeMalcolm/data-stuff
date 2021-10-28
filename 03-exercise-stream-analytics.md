@@ -1,3 +1,12 @@
+This exercise can be completed using a free Microsoft Learn *sandbox* subscription, which provides an Azure subscription and a cloud shell environment integrated into this page. The sandbox subscription will be created when you click the button above, and automatically deleted when you complete this module.
+
+> **Note**: If you prefer, you can use your own Azure subscription. To do this, before you start:
+>
+> 1. Sign into your Azure subscription i  the [Azure portal](https://portal.azure.com?azure-portal=true).
+> 2. Create a new *resource group* named **learn-stream-analytics** (you must match this name exactly)
+> 3. Use the **[\>_]** button to create a new cloud shell in the Azure portal, creating storage if prompted, and selecting a *Bash* environment.
+> 4. Complete the exercise steps below in the cloud shell pane in the Azure portal.
+
 ## Create Azure resources
 
 1. In the Azure Cloud Shell, enter the following command to download the files you'll need for this exercise.
@@ -20,8 +29,8 @@
 
     Wait as the script runs and performs the following actions:
 
-    1. Installs the Azure CLI extensions needed to create resources (*you can ignore any warninmgs about experimental extensions*)
-    2. Identifies the Azure resource group provided for this exercise, which will have a name similar to **learn-*xxxxx-xxxxxx-xxxxxx...***.
+    1. Installs the Azure CLI extensions needed to create resources (*you can ignore any warnings about experimental extensions*)
+    2. Identifies the Azure resource group provided for this exercise, which will have a name similar to **learn-*xxxxxxxxxxxxxxxxx...***.
     3. Creates an *Azure IoT Hub* resource, which will be used to receive a stream of data from a simulated device.
     4. Creates a *Azure Storage Account*, which will be used to store processed data.
     5. Creates a *Azure Stream Analytics* job, which will process the incoming device data in real-time, and write the results to the storage account.
@@ -29,13 +38,17 @@
 ## Explore the Azure resources
 
 1. Open the [Azure portal](https://portal.azure.com?azure-portal=true), signing in if prompted.
-2. On the home page, select **Resource groups** to see the resource groups in your subscription. This should include the **learn-*xxxxx-xxxxxx-xxxxxx...*** resource group identified by the setup script.
-3. Select the **learn-*xxxxx-xxxxxx-xxxxxx...*** resource group, and review the resources it contains, which should include:
-    - A *Stream Analytics job* named **analyzedevicedata**, which will be used to process streaming data.
-    - A *Storage account* named **cloudshell*xxxxxxxx***, which is used to store data for the Azure Cloud Shell you used to run the setup script.
+2. On the home page, select **Resource groups** to see the resource groups in your subscription. This should include the **learn-*xxxxxxxxxxxxxxxxx...*** resource group identified by the setup script.
+3. Select the **learn-*xxxxxxxxxxxxxxxxx...*** resource group, and review the resources it contains, which should include:
     - An *IoT Hub* named **iothub*xxxxxxxxxxxxx***, which is used to receive incoming device data.
     - A *Storage account* named **store*xxxxxxxxxxxx***, to which the data processing results will be written.
-4. Select the **analyzedevicedata** Stream Analytics job and view the information on its **Overview** page, noting the following details:
+    - A *Stream Analytics job* named **stream*xxxxxxxxxxxxx***, which will be used to process streaming data.
+
+    If all three of these resources are not listed, click the **&#8635; Refresh** button until they appear.
+
+    > **Note**: If you are using the learn sandbox, the resource group may also contain a second *Storage account* named **cloudshell*xxxxxxxx***, which is used to store data for the Azure Cloud Shell you used to run the setup script.
+
+4. Select the **stream*xxxxxxxxxxxxx*** Stream Analytics job and view the information on its **Overview** page, noting the following details:
     - The job has one *input* named **iotinput**, and one *output* named **bloboutput**. These reference the IoT Hub and Storage account created by the setup script.
     - The job has a *query*, which reads data from the **iotinput** input, and aggregates it by counting the number of messages processed every 10 seconds; writing the results to the **bloboutput** output.
 
@@ -55,7 +68,7 @@
     Device simulation in progress: 6%|#    | 7/120 [00:08<02:21, 1.26s/it]
     ```
 
-5. While the simulation is running, back in the Azure portal, return to the page for the **learn-*xxxxx-xxxxxx-xxxxxx...*** resource group, and select the **store*xxxxxxxxxxxx*** storage account.
+5. While the simulation is running, back in the Azure portal, return to the page for the **learn-*xxxxxxxxxxxxxxxxx...*** resource group, and select the **store*xxxxxxxxxxxx*** storage account.
 6. In the pane on the left of the storage account blade, select the **Storage browser** tab.
 7. In the storage browser, select **Blob containers** and then open the **data** container.
 8. In the **data** container, navigate through the folder hierarchy, which includes a folder for the current year, with subfolders for the month, day, and hour.
@@ -72,5 +85,7 @@
 11. Use the **&#8635; Refresh** button to refresh the file, noting that additional results are written to the file as Stream Analytics job processes the device data in realtime as it is streamed from the device to the IoT Hub.
 12. Return to the Azure Cloud Shell and wait for the device simulation to finish (it should run for around 3 minutes).
 13. Back in the Azure portal, refresh the file one more time to see the full set of results that were produced during the simulation.
-14. Return to the **learn-*xxxxx-xxxxxx-xxxxxx...*** resource group, and re-open the **analyzedevicedata** Stream Analytics job.
+14. Return to the **learn-*xxxxxxxxxxxxxxxxx...*** resource group, and re-open the **stream*xxxxxxxxxxxxx*** Stream Analytics job.
 15. At the top of the Stream Analytics job page, use the **&#11036; Stop** button to stop the job, confirming when prompted.
+
+> **Note**: If you are using your own Azure subscription, and you have finished exploring the streaming solution, you can delete the **learn-stream-analytics** resource group.
