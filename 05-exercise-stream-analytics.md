@@ -1,18 +1,24 @@
+<!-- Requires a sandbox with the IoT policy -->
+Now it's your opportunity to explore Azure Stream Analytics in a sample solution that aggregates streaming data from a simulated IoT device.
+
 This exercise can be completed using a free Microsoft Learn *sandbox* subscription, which provides an Azure subscription and a cloud shell environment integrated into this page. The sandbox subscription will be created when you click the button above, and automatically deleted when you complete this module.
 
-> **Note**: If you prefer, you can use your own Azure subscription. To do this, before you start:
+> [!TIP]
+> If you prefer, you can use your own Azure subscription. To do this, before you start:
 >
-> 1. Sign into your Azure subscription i  the [Azure portal](https://portal.azure.com?azure-portal=true).
-> 2. Create a new *resource group* named **learn-stream-analytics** (you must match this name exactly)
+> 1. Sign into your Azure subscription in the [Azure portal](https://portal.azure.com?azure-portal=true).
+> 2. In your default subscription, create a new *resource group* named **learn-stream-analytics** (you must match this name exactly)
 > 3. Use the **[\>_]** button to create a new cloud shell in the Azure portal, creating storage if prompted, and selecting a *Bash* environment.
 > 4. Complete the exercise steps below in the cloud shell pane in the Azure portal.
+>
+> For more information about using the Azure cloud shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?azure-portal=true)
 
 ## Create Azure resources
 
 1. In the Azure Cloud Shell, enter the following command to download the files you'll need for this exercise.
 
     ```
-    git clone https://github.com/graememalcolm/data-stuff dp-900
+    git clone https://github.com/MicrosoftLearning/DP-900T00A-Azure-Data-Fundamentals dp-900
     ```
 
 2. Wait for the command to complete, and then enter the following command to change the current directory to the folder containing the files for this exercise.
@@ -73,7 +79,7 @@ This exercise can be completed using a free Microsoft Learn *sandbox* subscripti
 7. In the storage browser, select **Blob containers** and then open the **data** container.
 8. In the **data** container, navigate through the folder hierarchy, which includes a folder for the current year, with subfolders for the month, day, and hour.
 9. In the folder for the hour, select the file that has been created, which should have a name similar to **0_xxxxxxxxxxxxxxxx.json**.
-10. On the page for the file, select **Edit**, and review the contents of the file; which should consist of a JSON record for each 10 second period, showing the number of messages received from IOT devices, like this:
+10. On the page for the file, select **Edit**, and review the contents of the file; which should consist of a JSON record for each 10 second period, showing the number of messages received from IoT devices, like this:
 
     ```
     {"starttime":"2021-10-23T01:02:13.2221657Z","endtime":"2021-10-23T01:02:23.2221657Z","device":"iotdevice","messages":2}
@@ -88,4 +94,5 @@ This exercise can be completed using a free Microsoft Learn *sandbox* subscripti
 14. Return to the **learn-*xxxxxxxxxxxxxxxxx...*** resource group, and re-open the **stream*xxxxxxxxxxxxx*** Stream Analytics job.
 15. At the top of the Stream Analytics job page, use the **&#11036; Stop** button to stop the job, confirming when prompted.
 
-> **Note**: If you are using your own Azure subscription, and you have finished exploring the streaming solution, you can delete the **learn-stream-analytics** resource group.
+> [!TIP]
+> If you are using your own Azure subscription, and you have finished exploring the streaming solution, you can delete the **learn-stream-analytics** resource group.

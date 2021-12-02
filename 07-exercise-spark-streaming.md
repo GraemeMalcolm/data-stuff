@@ -1,6 +1,6 @@
 In this exercise, you'll use *Spark Structured Streaming* and *delta tables* in Azure Synapse Analytics to process streaming data.
 
-> **Note**: To complete this exercise, you will need a Microsoft Azure subscription. If you don't already have one, you can sign up for a free trial at [https://azure.microsoft.com/free](https://azure.microsoft.com/free?portal=true).
+To complete this exercise, you will need a Microsoft Azure subscription. If you don't already have one, you can sign up for a free trial at [https://azure.microsoft.com/free](https://azure.microsoft.com/free?portal=true).
 
 ## Provision a Synapse Analytics workspace
 
@@ -18,7 +18,8 @@ To use Synapse Analytics, you must provision a Synapse Analytics Workspace resou
         - **Account name**: *Create a new account with a unique name, for example "datalake<your_name>"*.
         - **File system name**: *Create a new file system with a unique name, for example "fs<your_name>"*.
 
-    > **Note**: A Synapse Analytics workspace requires two resource groups in your Azure subscription; one for resources you explicitly create, and another for managed resources used by the service. It also requires a Data Lake storage account in which to store data, scripts, and other artifacts.
+    > [!NOTE]
+    > A Synapse Analytics workspace requires two resource groups in your Azure subscription; one for resources you explicitly create, and another for managed resources used by the service. It also requires a Data Lake storage account in which to store data, scripts, and other artifacts.
 
 4. When you've entered these details, select **Review + create**, and then select **Create** to create the workspace.
 5. Wait for the workspace to be created - this may take five minutes or so.
@@ -45,7 +46,7 @@ To use Spark to process streaming data, you need to add a Spark pool to your Azu
 
 To explore stream processing with Spark, you'll use a notebook that contains Python code and notes to help you perform some basic stream processing with Spark Structured Streaming and delta tables.
 
-1. Download the [Structured Streaming and Delta Tables.ipynb](https://github.com/GraemeMalcolm/data-stuff/raw/main/streaming/Spark%20Structured%20Streaming%20and%20Delta%20Tables.ipynb) notebook to your local computer (if the notebook is opened as a text file in your browser, save it to a local folder; being careful to save it as **Structured Streaming and Delta Tables.ipynb**, not as a .txt file)
+1. Download the [Structured Streaming and Delta Tables.ipynb](https://github.com/MicrosoftLearning/DP-900T00A-Azure-Data-Fundamentals/raw/master/streaming/Spark%20Structured%20Streaming%20and%20Delta%20Tables.ipynb) notebook to your local computer (if the notebook is opened as a text file in your browser, save it to a local folder; being careful to save it as **Structured Streaming and Delta Tables.ipynb**, not as a .txt file)
 2. In Synapse Studio, select the **Develop** page.
 3. On the **&#65291;** menu, select **&#8612; Import**, and select the **Structured Streaming and Delta Tables.ipynb** file on your local computer.
 4. Follow the instructions in the notebook to attach it to your Spark pool and run the code cells it contains to explore various ways to use Spark for stream processing.

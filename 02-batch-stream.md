@@ -1,7 +1,7 @@
 Data processing is simply the conversion of raw data to meaningful information through a process. There are two general ways to process data:
 
 - *Batch processing*, in which multiple data records are collected and stored before being processed together in a single operation.
-- *Streaming*, in which a source of data is constantly monitored and processed in realtime as new data events occur.
+- *Stream processing*, in which a source of data is constantly monitored and processed in realtime as new data events occur.
 
 ## Understand batch processing
 
@@ -23,11 +23,11 @@ Advantages of batch processing include:
 Disadvantages of batch processing include:
 
 - The time delay between ingesting the data and getting the results.
-- All of a batch job's input data must be ready before a batch can be processed. This means data must be carefully checked. Problems with data, errors, and program crashes that occur during batch jobs bring the whole process to a halt. The input data must be carefully checked before the job can be run again. Even minor data errors, such as typographical errors in dates, can prevent a batch job from running.
+- All of a batch job's input data must be ready before a batch can be processed. This means data must be carefully checked. Problems with data, errors, and program crashes that occur during batch jobs bring the whole process to a halt. The input data must be carefully checked before the job can be run again. Even minor data errors can prevent a batch job from running.
 
 ## Understand stream processing
 
-In stream processing, each new piece of data is processed when it arrives. Unlike batch processing, there's no waiting until the next batch processing interval - data is processed as individual pieces in real-time rather than being processed a batch at a time. Streaming data processing is beneficial in most scenarios where new, dynamic data is generated on a continual basis.
+In stream processing, each new piece of data is processed when it arrives. Unlike batch processing, there's no waiting until the next batch processing interval - data is processed as individual units in real-time rather than being processed a batch at a time. Streaming data processing is beneficial in most scenarios where new, dynamic data is generated on a continual basis.
 
 For example, a better approach to our hypothetical car counting problem might be to apply a *streaming* approach, by counting the cars in real-time as they pass:
 
@@ -47,9 +47,9 @@ Stream processing is ideal for time-critical operations that require an instant 
 
 Apart from the way in which batch processing and streaming processing handle data, there are other differences:
 
-- *Data Scope*: Batch processing can process all the data in the dataset. Stream processing typically only has access to the most recent data received, or within a rolling time window (the last 30 seconds, for example).
+- *Data scope*: Batch processing can process all the data in the dataset. Stream processing typically only has access to the most recent data received, or within a rolling time window (the last 30 seconds, for example).
 
-- *Data Size*: Batch processing is suitable for handling large datasets efficiently. Stream processing is intended for individual records or *micro batches* consisting of few records.
+- *Data size*: Batch processing is suitable for handling large datasets efficiently. Stream processing is intended for individual records or *micro batches* consisting of few records.
 
 - *Performance*: The latency for batch processing is typically a few hours. Stream processing typically occurs immediately, with latency in the order of seconds or milliseconds. Latency is the time taken for the data to be received and processed.
 
@@ -57,7 +57,7 @@ Apart from the way in which batch processing and streaming processing handle dat
 
 ## Combine batch and stream processing
 
-Many large-scale analytics solutions include a mix of batch and stream processing, enabling both historical and real-time data analysis. It's common for stream processing solutions to capture real-time data, process it by filtering or aggregating it, and present it through real-time dashboards and visualizations (for example, showing the running total of cars that have passed along a road within the current hour), while persisting the processed results in a data store for historical analysis alongside batch processed data (for example, to enable analysis of traffic volumes for previous hours).
+Many large-scale analytics solutions include a mix of batch and stream processing, enabling both historical and real-time data analysis. It's common for stream processing solutions to capture real-time data, process it by filtering or aggregating it, and present it through real-time dashboards and visualizations (for example, showing the running total of cars that have passed along a road within the current hour), while persisting the processed results in a data store for historical analysis alongside batch processed data (for example, to enable analysis of traffic volumes over the past year).
 
 Even when real-time analysis or visualization of data is not required, streaming technologies are often used to capture real-time data and store it in a data store for subsequent batch processing (this is the equivalent of redirecting all of the cars that travel along a road into a parking lot before counting them).
 
@@ -73,4 +73,5 @@ The following diagram shows some ways in which batch and stream processing can b
 6. The results of stream processing may also be persisted in the analytical data store to support historical analysis.
 7. Analytical and visualization tools are used to present and explore the real-time and historical data.
 
-> **Note**: Commonly used solution architectures for combined batch and stream data processing include *lambda* and *delta* architectures. Details of these architectures are beyond the scope of this course, but they incorporate technologies for both large-scale batch data processing and real-time stream processing to create an end-to-end analytical solution.
+> [!NOTE]
+> Commonly used solution architectures for combined batch and stream data processing include *lambda* and *delta* architectures. Details of these architectures are beyond the scope of this course, but they incorporate technologies for both large-scale batch data processing and real-time stream processing to create an end-to-end analytical solution.
